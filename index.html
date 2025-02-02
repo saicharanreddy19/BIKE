@@ -93,11 +93,73 @@
             <h2>About This Website</h2>
             <p>This is a simple single-page website created using HTML, CSS, and JavaScript. You can change the background color by clicking the button above!</p>
         </section>
+        <section id="bikeFactsSection">
+            <h2>Interesting Bike Facts</h2>
+            <ul id="bikeFactsList"></ul>
+        </section>
     </main>
     <footer>
         <p>&copy; 2023 My Single Page Website</p>
     </footer>
     <script>
+        // JSON data
+        const bikeFacts = [
+            {
+                "fact": "History",
+                "description": "The first bicycle, known as the 'Draisine' or 'running machine,' was invented in 1817 by Baron Karl von Drais. It was a two-wheeled, steerable device that required the rider to run while sitting on it."
+            },
+            {
+                "fact": "Types of Bikes",
+                "description": "There are various types of bicycles designed for different purposes, including road bikes, mountain bikes, hybrid bikes, touring bikes, and BMX bikes."
+            },
+            {
+                "fact": "Health Benefits",
+                "description": "Riding a bike is an excellent form of cardiovascular exercise. It helps improve heart health, builds muscle strength, and can aid in weight loss."
+            },
+            {
+                "fact": "Environmental Impact",
+                "description": "Bicycles are an eco-friendly mode of transportation. They produce no emissions, reduce traffic congestion, and require less energy to manufacture compared to cars."
+            },
+            {
+                "fact": "World's Largest Bicycle Manufacturer",
+                "description": "The largest bicycle manufacturer in the world is Giant Manufacturing Co. Ltd., based in Taiwan. They produce millions of bikes each year."
+            },
+            {
+                "fact": "Bike Sharing",
+                "description": "Many cities around the world have implemented bike-sharing programs, allowing people to rent bikes for short periods. This promotes cycling as a convenient and sustainable transportation option."
+            },
+            {
+                "fact": "Record Speeds",
+                "description": "The fastest speed ever recorded on a bicycle is 183.932 km/h (114.1 mph), achieved by Fred Rompelberg in 1995, while drafting behind a car on a flat surface."
+            },
+            {
+                "fact": "Bike Components",
+                "description": "A typical bicycle consists of several key components, including the frame, wheels, handlebars, pedals, and gears. Each part plays a crucial role in the bike's performance and handling."
+            },
+            {
+                "fact": "Cycling Events",
+                "description": "The Tour de France is one of the most prestigious cycling races in the world, covering approximately 3,500 kilometers (2,200 miles) over three weeks."
+            },
+            {
+                "fact": "Safety Gear",
+                "description": "Wearing a helmet while cycling can significantly reduce the risk of head injuries in the event of an accident. Other safety gear includes reflective clothing, lights, and bells."
+            }
+        ];
+
+        // Function to display bike facts
+        function displayBikeFacts() {
+            const bikeFactsList = document.getElementById('bikeFactsList');
+            bikeFacts.forEach(fact => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${fact.fact}:</strong> ${fact.description}`;
+                bikeFactsList.appendChild(listItem);
+            });
+        }
+
+        // Call the function to display bike facts
+        displayBikeFacts();
+
+        // Change background color functionality
         document.getElementById('colorButton').addEventListener('click', function() {
             document.body.style.backgroundColor = getRandomColor();
         });
